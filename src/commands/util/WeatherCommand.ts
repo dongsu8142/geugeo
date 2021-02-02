@@ -30,8 +30,10 @@ export default class WeatherCommand extends BaseCommand {
                 .addField("오존 지수", accountObj.오존지수, true);
               message.channel.send(embed);
             } else {
-              message.channel.send(accountObj.error);
+              message.channel.send(accountObj[0].error);
             }
+          } else {
+            message.channel.send("api 서버에서 오류가 발생했습니다.");
           }
         }
       );

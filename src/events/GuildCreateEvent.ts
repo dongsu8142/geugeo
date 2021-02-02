@@ -11,6 +11,6 @@ export default class GuildCreateEvent extends BaseEvent {
   async run(client: DiscordClient, guild: Guild) {
     global
       .update(client.guilds.cache.size)
-      .then(global.log(`봇이 ${guild.name}에 들어갔습니다.`));
+      .then((r) => global.log(`봇이 ${guild.name}에 들어갔습니다.`));
   }
 }

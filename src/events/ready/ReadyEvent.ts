@@ -6,7 +6,7 @@ export default class ReadyEvent extends BaseEvent {
     super("ready");
   }
   async run(client: DiscordClient) {
-    global.update(client.guilds.cache.size);
+    await global.update(client.guilds.cache.size);
     global.log("Bot has logged in.");
     client.user?.setActivity("그거야 도움말", { type: "PLAYING" });
   }
