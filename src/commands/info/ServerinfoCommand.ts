@@ -1,10 +1,10 @@
-import { Message, MessageEmbed } from "discord.js";
-import BaseCommand from "../../utils/structures/BaseCommand";
-import DiscordClient from "../../client/client";
+import { Message, MessageEmbed } from 'discord.js';
+import BaseCommand from '../../utils/structures/BaseCommand';
+import DiscordClient from '../../client/client';
 
 export default class ServerinfoCommand extends BaseCommand {
   constructor() {
-    super("서버정보", "info", [], "서버정보를 보여줍니다.");
+    super('서버정보', 'info', [], '서버정보를 보여줍니다.');
   }
 
   async run(client: DiscordClient, message: Message, args: Array<string>) {
@@ -12,9 +12,9 @@ export default class ServerinfoCommand extends BaseCommand {
 
     const embed = new MessageEmbed()
       .setDescription(`${guild?.name}의 정보`)
-      .setColor(message.guild?.me?.displayHexColor || "BLUE")
+      .setColor(message.guild?.me?.displayHexColor || 'BLUE')
       .setThumbnail(guild?.iconURL({ dynamic: true })!)
-      .addField("일반", [
+      .addField('일반', [
         `**❯ 이름:** ${guild?.name}`,
         `**❯ 아이디:** ${guild?.id}`,
         `**❯ 소유자:** ${guild?.owner?.user.tag}`,

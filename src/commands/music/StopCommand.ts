@@ -4,7 +4,7 @@ import DiscordClient from '../../client/client';
 
 export default class StopCommand extends BaseCommand {
   constructor() {
-    super('스탑', 'music', [], "음악을 중지합니다.");
+    super('스탑', 'music', [], '음악을 중지합니다.');
   }
 
   async run(client: DiscordClient, message: Message, args: Array<string>) {
@@ -12,7 +12,7 @@ export default class StopCommand extends BaseCommand {
       client.player.stop(message);
       message.channel.send('음악을 중지했습니다');
     } else {
-      message.channel.send("재생중인 음악이 없습니다!");
+      message.channel.send('재생중인 음악이 없습니다!');
     }
   }
 }

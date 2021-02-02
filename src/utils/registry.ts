@@ -1,9 +1,8 @@
-
 import path from 'path';
 import { promises as fs } from 'fs';
 import DiscordClient from '../client/client';
 
-export async function registerCommands(client: DiscordClient, dir: string = '') {
+export async function registerCommands(client: DiscordClient, dir = '') {
   const filePath = path.join(__dirname, dir);
   const files = await fs.readdir(filePath);
   for (const file of files) {
@@ -20,7 +19,7 @@ export async function registerCommands(client: DiscordClient, dir: string = '') 
   }
 }
 
-export async function registerEvents(client: DiscordClient, dir: string = '') {
+export async function registerEvents(client: DiscordClient, dir = '') {
   const filePath = path.join(__dirname, dir);
   const files = await fs.readdir(filePath);
   for (const file of files) {

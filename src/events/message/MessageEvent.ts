@@ -1,13 +1,13 @@
-import BaseEvent from "../../utils/structures/BaseEvent";
-import { Message } from "discord.js";
-import DiscordClient from "../../client/client";
-import Levels from "discord-xp-ts";
+import { Message } from 'discord.js';
+import Levels from 'discord-xp-ts';
+import BaseEvent from '../../utils/structures/BaseEvent';
+import DiscordClient from '../../client/client';
 
-Levels.setURL("mongodb://localhost:27017");
+Levels.setURL('mongodb://localhost:27017');
 
 export default class MessageEvent extends BaseEvent {
   constructor() {
-    super("message");
+    super('message');
   }
 
   async run(client: DiscordClient, message: Message) {
@@ -17,7 +17,7 @@ export default class MessageEvent extends BaseEvent {
     const hasLeveledUp = await Levels.appendXp(
       message.author.id,
       message.guild.id,
-      randomXp
+      randomXp,
     );
     if (hasLeveledUp) {
       const user = await Levels.fetch(message.author.id, message.guild.id);
@@ -36,7 +36,7 @@ export default class MessageEvent extends BaseEvent {
           global.log(
             `${message.author.username}이 ${
               message.guild?.name
-            }에서 ${command.getName()} 실행`
+            }에서 ${command.getName()} 실행`,
           );
           command.run(client, message, cmdArgs);
         }

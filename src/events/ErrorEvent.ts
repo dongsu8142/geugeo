@@ -6,7 +6,7 @@ export default class ErrorEvent extends BaseEvent {
   constructor() {
     super('error');
   }
-  
+
   async run(client: DiscordClient, error: Error) {
     console.error('The WebSocket encountered an error:', error);
   }
