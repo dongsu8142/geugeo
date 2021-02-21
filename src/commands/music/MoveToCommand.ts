@@ -4,7 +4,7 @@ import DiscordClient from '../../client/client';
 
 export default class SeekCommand extends BaseCommand {
   constructor() {
-    super('채널이동', 'music', [], '현재 재생중인 음악 시간 설정(초 단위)');
+    super('채널이동', 'music', [], '봇이 들어가있는 채널을 이동시킵니다.');
   }
 
   async run(client: DiscordClient, message: Message, args: Array<string>) {

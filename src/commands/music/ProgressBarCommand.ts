@@ -4,7 +4,7 @@ import DiscordClient from '../../client/client';
 
 export default class SeekCommand extends BaseCommand {
   constructor() {
-    super('재생시간', 'music', [], '현재 재생중인 음악 시간 설정(초 단위)');
+    super('재생시간', 'music', [], '재생바를 보여줍니다.');
   }
 
   async run(client: DiscordClient, message: Message, args: Array<string>) {
