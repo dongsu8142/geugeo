@@ -8,7 +8,7 @@ import './utils/misc';
 const client: DiscordClient = new DiscordClient({
   ws: { intents: new Intents(Intents.ALL) },
 });
-const player: Player = new Player(client);
+const player: Player = new Player(client, { quality: 'high' });
 
 (async () => {
   client.player = player;
