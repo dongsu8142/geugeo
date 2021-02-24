@@ -8,7 +8,11 @@ export default class PlayCommand extends BaseCommand {
   }
 
   async run(client: DiscordClient, message: Message, args: Array<string>) {
-    const content = args.join(' ');
-    await client.player.play(message, content, false);
+    if (args[0]) {
+      const content = args.join(' ');
+      await client.player.play(message, content, false);
+    } else {
+      message.channel.send('음악 이름 또는 Youtube url을 적어주세요');
+    }
   }
 }

@@ -1,12 +1,4 @@
-import {
-  Message,
-  MessageEmbed,
-  MessageReaction,
-  ReactionCollector,
-  ReactionEmoji,
-  ReactionManager,
-  User,
-} from 'discord.js';
+import { Message, MessageEmbed, MessageReaction, User } from 'discord.js';
 import { Track } from 'discord-player';
 import BaseCommand from '../../utils/structures/BaseCommand';
 import DiscordClient from '../../client/client';
