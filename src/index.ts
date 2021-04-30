@@ -1,4 +1,4 @@
-import { Player, Playlist, Queue, Track } from 'discord-player';
+import { Player, Queue, Track } from 'discord-player';
 import { Message, MessageCollector, MessageEmbed, Intents } from 'discord.js';
 import { registerCommands, registerEvents } from './utils/registry';
 import config from './config.json';
@@ -8,7 +8,7 @@ import './utils/misc';
 const client: DiscordClient = new DiscordClient({
   ws: { intents: new Intents(Intents.ALL) },
 });
-const player: Player = new Player(client, { quality: 'high' });
+const player: Player = new Player(client);
 
 (async () => {
   client.player = player;
@@ -20,7 +20,7 @@ const player: Player = new Player(client, { quality: 'high' });
     .on('trackAdd', (message: Message, queue: Queue, track: Track) =>
       message.channel.send(`${track.title}이 대기열에 추가되었습니다!`),
     )
-    .on('playlistAdd', (message: Message, queue: Queue, playlist: Playlist) =>
+    .on('playlistAdd', (message: Message, queue: Queue, playlist) =>
       message.channel.send(
         `${playlist.title}이 대기열에 추가되었습니다. (${playlist.videoCount}개)!`,
       ),
