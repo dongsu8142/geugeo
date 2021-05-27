@@ -12,7 +12,7 @@ export default class WeatherCommand extends BaseCommand {
     const area = encodeURI(args.join(' '));
     if (area) {
       request(
-        `https://manyyapi.herokuapp.com/weather/${area}`,
+        `https://koreaapi.herokuapp.com/weather/${area}`,
         (error, response, body) => {
           if (!error && response.statusCode == 200) {
             const accountObj = JSON.parse(body);

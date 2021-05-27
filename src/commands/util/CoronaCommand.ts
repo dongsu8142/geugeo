@@ -10,7 +10,7 @@ export default class CoronaCommand extends BaseCommand {
 
   async run(client: DiscordClient, message: Message, args: Array<string>) {
     request(
-      `https://manyyapi.herokuapp.com/corona`,
+      `https://koreaapi.herokuapp.com/corona`,
       (error, response, body) => {
         if (!error && response.statusCode == 200) {
           const accountObj = JSON.parse(body);

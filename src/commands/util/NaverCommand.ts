@@ -9,7 +9,7 @@ export default class NaverCommand extends BaseCommand {
   }
 
   async run(client: DiscordClient, message: Message, args: Array<string>) {
-    request(`https://manyyapi.herokuapp.com/naver`, (error, response, body) => {
+    request(`https://koreaapi.herokuapp.com/naver`, (error, response, body) => {
       if (!error && response.statusCode == 200) {
         const accountObj = JSON.parse(body);
         const embed = new MessageEmbed().setTitle('실시간검색어');

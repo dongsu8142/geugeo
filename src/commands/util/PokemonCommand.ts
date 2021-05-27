@@ -12,7 +12,7 @@ export default class PokemonCommand extends BaseCommand {
     const name = encodeURI(args.join(' '));
     if (name) {
       request(
-        `https://manyyapi.herokuapp.com/pokemon/${name}`,
+        `https://koreaapi.herokuapp.com/pokemon/${name}`,
         (error, response, body) => {
           if (!error && response.statusCode == 200) {
             const accountObj = JSON.parse(body);
