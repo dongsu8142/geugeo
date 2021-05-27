@@ -1,6 +1,7 @@
 import { Player, Queue, Track } from 'discord-player';
 import { Message, MessageCollector, MessageEmbed, Intents } from 'discord.js';
 import { registerCommands, registerEvents } from './utils/registry';
+import { Reverbnation } from "@discord-player/extractor";
 import config from './config.json';
 import DiscordClient from './client/client';
 import './utils/misc';
@@ -8,9 +9,10 @@ import './utils/misc';
 const client: DiscordClient = new DiscordClient({
   ws: { intents: new Intents(Intents.ALL) },
 });
-const player: Player = new Player(client);
+const player: Player = new Player(client, { enableLive: true });
 
 (async () => {
+  player.use("reverbnation", Reverbnation);
   client.player = player;
   client.prefix = config.prefix || client.prefix;
   client.player

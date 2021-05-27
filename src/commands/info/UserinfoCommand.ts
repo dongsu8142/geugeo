@@ -1,4 +1,4 @@
-import { Message, MessageEmbed } from 'discord.js';
+import { Message, MessageEmbed, User } from 'discord.js';
 import BaseCommand from '../../utils/structures/BaseCommand';
 import DiscordClient from '../../client/client';
 
@@ -26,10 +26,10 @@ export default class UserinfoCommand extends BaseCommand {
       .setDescription(
         `**이름**: ${target?.username}\n**태그**: ${target?.username}#${target?.discriminator}\n**아이디**: ${target?.id}`,
       )
-      .addField('상태', member?.user.presence.status, true)
+      .addField('상태', target?.presence.status, true)
       .addField(
         '게임',
-        member?.user.presence.activities[1]?.name || '게임을하지 않음.',
+        target?.presence.activities[1]?.name || '게임을하지 않음.',
         true,
       )
       .addField(
