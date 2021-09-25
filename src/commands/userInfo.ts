@@ -7,14 +7,24 @@ export default {
   category: "Info",
   description: "유저정보를 보여줍니다.",
   slash: "both",
-  callback: ({ user, member }) => {
+  options: [
+    {
+      name: "user",
+      description: "정보를 찾고 싶은 유저",
+      required: false,
+      type: 6,
+    },
+  ],
+  callback: async ({ user: myUser, guild, args, message, client }) => {
+    const user = (message ? message.mentions.users.first() : args[0] ? (await client.users.fetch(args[0])) : myUser) || myUser;
+    const member = (await guild?.members.fetch())?.get(user.id)!;
     const roles = member?.roles.cache
       .sort((a, b) => b.position - a.position)
       .map((role) => role.toString())
       .slice(0, -1);
     const embed = new MessageEmbed()
       .setTitle(`${member.displayName}님의 정보`)
-      .setAuthor(user?.username, user?.displayAvatarURL())
+      .setAuthor(user.username, user.displayAvatarURL())
       .setThumbnail(user.displayAvatarURL({ dynamic: true }))
       .setDescription(
         `**이름**: ${user.username}\n**태그**: ${user.username}#${user.discriminator}\n**아이디**: ${user.id}`
@@ -23,7 +33,7 @@ export default {
       .addField("상태", member.presence?.status!, true)
       .addField(
         "게임",
-        member.presence?.activities
+        member.presence?.activities[0]
           ? member.presence?.activities[0].name
           : "게임을하지 않음.",
         true
