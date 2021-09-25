@@ -1,5 +1,11 @@
-node_modules
-dist
-.vscode
-yarn-error.log
-src/config.json
+# config
+config.yml
+
+# yarn berry
+.yarn/*
+!.yarn/patches
+!.yarn/releases
+!.yarn/plugins
+!.yarn/sdks
+!.yarn/versions
+.pnp.*
