@@ -16,7 +16,7 @@ jobs:
         uses: actions/setup-node@v2.4.0
         with:
           node-version: 16.10.0
-          architecture: x86
+          architecture: x64
       - name: Update npm
         run: npm install -g npm
       - name: Install yarn
