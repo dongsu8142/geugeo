@@ -1,6 +1,9 @@
 # config
 config.yml
 
+# build
+dist/
+
 # yarn berry
 .yarn/*
 !.yarn/patches
