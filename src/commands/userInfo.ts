@@ -9,7 +9,7 @@ export default {
   slash: "both",
   options: [
     {
-      name: "user",
+      name: "유저",
       description: "정보를 찾고 싶은 유저",
       required: false,
       type: 6,
