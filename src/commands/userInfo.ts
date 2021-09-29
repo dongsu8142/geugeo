@@ -15,8 +15,8 @@ export default {
       type: 6,
     },
   ],
-  callback: async ({ user: myUser, guild, args, message, client }) => {
-    const user = (message ? message.mentions.users.first() : args[0] ? (await client.users.fetch(args[0])) : myUser) || myUser;
+  callback: async ({ user: myUser, guild, message, interaction }) => {
+    const user = (message ? message.mentions.users.first() : interaction.options.getUser("유저")) || myUser
     const member = (await guild?.members.fetch())?.get(user.id)!;
     const roles = member?.roles.cache
       .sort((a, b) => b.position - a.position)

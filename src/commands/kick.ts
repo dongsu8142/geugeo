@@ -21,13 +21,14 @@ export default {
       type: 3,
     },
   ],
-  callback: async ({ guild, message, client, args }) => {
+  callback: async ({ guild, message, args, interaction }) => {
     try {
       const user = message
         ? message.mentions.users.first()
-        : await client.users.fetch(args[0]);
-      args.splice(0, 1);
-      const reason = args.join(" ") || "사유 없음";
+        : interaction.options.getUser("유저");
+      args.shift();
+      const reason =
+        interaction.options.getString("사유") || args.join(" ") || "사유 없음";
       const target = (await guild?.members.fetch()!).get(user?.id!);
       if (target) {
         await target.kick(reason);
