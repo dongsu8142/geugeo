@@ -920,7 +920,7 @@ fsevents@~2.3.2:
     nodemon: ^2.0.13
     ts-node: ^10.2.1
     typescript: ^4.4.3
-    wokcommands: 1.3.99
+    wokcommands: "github:AlexzanderFlores/WOKCommands#dev"
   languageName: unknown
   linkType: soft
 
@@ -2483,14 +2483,14 @@ typescript@^4.4.3:
   languageName: node
   linkType: hard
 
-"wokcommands@npm:1.3.99":
-  version: 1.3.99
-  resolution: "wokcommands@npm:1.3.99"
+"wokcommands@github:AlexzanderFlores/WOKCommands#dev":
+  version: 1.4.5
+  resolution: "wokcommands@https://github.com/AlexzanderFlores/WOKCommands.git#commit=73f37efed9fb67a2e9ff5b195174c58f55601b9b"
   dependencies:
     discord.js: ^13.1.0
     dotenv: ^8.2.0
     mongoose: ^5.10.15
-  checksum: f88b294cf39acb294e1f89465bd15ea66267a170a4df1f42adabdcab3a4f09fc618f0bd504dc5425f70b35164efe72f613fb47cf5b8add60991cc3effab4f882
+  checksum: 8cc8bc6364ba43de6091aa3bd0c0291f68798f50fcc2a786305cdfefe6713b23e1d5051d2b77405e8c713dd2ce34e8ff70cb848e5efa184c990d098db1eac2f1
   languageName: node
   linkType: hard
 

@@ -1,3 +1,5 @@
 bot:
   token: 
   prefix: 
+  botOwners: 
+  testServers: 

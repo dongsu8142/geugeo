@@ -5,7 +5,7 @@ import YAML from "js-yaml";
 import fs from "fs";
 import { IConfig } from "./interface/config";
 
-const config = YAML.load(fs.readFileSync("./config.yml", "utf8")) as IConfig
+const config = YAML.load(fs.readFileSync("./config.yml", "utf8")) as IConfig;
 
 const client = new Client({
   intents: [
@@ -22,8 +22,10 @@ client.on("ready", () => {
   new WOKCommands(client, {
     commandsDir: path.join(__dirname, "commands"),
     typeScript: true,
-    testServers: ["695541052593012788"],
-  }).setDefaultPrefix(config.bot.prefix);
+    testServers: config.bot.testServers,
+  })
+    .setDefaultPrefix(config.bot.prefix)
+    .setBotOwner(config.bot.botOwners);
 });
 
 client.login(config.bot.token);

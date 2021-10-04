@@ -1,3 +1,4 @@
+import { GuildMember } from "discord.js";
 import { ICommand } from "wokcommands";
 
 export default {
@@ -15,24 +16,22 @@ export default {
       type: 6,
     },
     {
-      name: "사유",
-      description: "벤을 하는 사유를 적어주세요.",
+      name: "이유",
+      description: "벤을 하는 이유를 적어주세요.",
       required: false,
       type: 3,
     },
   ],
-  callback: async ({ guild, message, args, interaction }) => {
+  callback: async ({ message, args, interaction }) => {
     try {
-      const user = message
-        ? message.mentions.users.first()
-        : interaction.options.getUser("유저");
-      args.shift();
-      const reason =
-        interaction.options.getString("사유") || args.join(" ") || "사유 없음";
-      const target = (await guild?.members.fetch()!).get(user?.id!);
+      const target = message
+        ? message.mentions.members?.first()
+        : (interaction.options.getMember("유저") as GuildMember);
       if (target) {
+        args.shift();
+        const reason = args.join(" ") || "사유 없음";
         await target.ban({ reason });
-        return `${target?.user.username}을 벤했습니다. 사유: ${reason}`;
+        return `${target?.user.username}을 벤했습니다. 이유: ${reason}`;
       } else {
         return "대상이 지정되지 않았습니다.";
       }
