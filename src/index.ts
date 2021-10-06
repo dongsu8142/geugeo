@@ -23,9 +23,9 @@ client.on("ready", () => {
     commandsDir: path.join(__dirname, "commands"),
     typeScript: true,
     testServers: config.bot.testServers,
+    botOwners: config.bot.botOwners
   })
-    .setDefaultPrefix(config.bot.prefix)
-    .setBotOwner(config.bot.botOwners);
+    .setDefaultPrefix(config.bot.prefix);
 });
 
 client.login(config.bot.token);
