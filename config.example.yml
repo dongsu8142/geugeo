@@ -1,5 +1,5 @@
 bot:
   token: 
   prefix: 
-  botOwners: 
-  testServers: 
+  botOwners: [""]
+  testServers: [""]
