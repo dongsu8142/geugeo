@@ -13,7 +13,9 @@ export default {
     const queue = player.getQueue(guild!);
     if (queue) {
       const success = queue.skip();
-      return success ? "✅ | 음악을 스킵했습니다." : "❌ | 스킵에 실패했습니다.";
+      return success
+        ? "✅ | 음악을 스킵했습니다."
+        : "❌ | 스킵에 실패했습니다.";
     } else {
       return "❌ | 재생중인 음악이 없습니다!";
     }

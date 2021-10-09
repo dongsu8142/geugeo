@@ -29,7 +29,7 @@ client.player = new Player(client, {
 
 client.player
   .on("trackStart", (queue: any, track) =>
-    queue.metadata.channel.send(`🎶 |**${track.title}**를 시작합니다.`)
+    queue.metadata.channel.send(`🎶 | **${track.title}**를 시작합니다.`)
   )
   .on("trackAdd", (queue: any, track) => {
     if (queue.playing) {
