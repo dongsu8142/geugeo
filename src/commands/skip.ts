@@ -12,10 +12,10 @@ export default {
     const player = (client as DiscordClient).player;
     const queue = player.getQueue(guild!);
     if (queue) {
-      queue.skip();
-      return "음악을 스킵했습니다.";
+      const success = queue.skip();
+      return success ? "✅ | 음악을 스킵했습니다." : "❌ | 스킵에 실패했습니다.";
     } else {
-      return "재생중인 음악이 없습니다!";
+      return "❌ | 재생중인 음악이 없습니다!";
     }
   },
 } as ICommand;

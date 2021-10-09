@@ -23,21 +23,29 @@ const client = new DiscordClient({
 
 client.player = new Player(client, {
   ytdlOptions: {
-    filter: "audioonly"
-  }
+    filter: "audioonly",
+  },
 });
 
 client.player
   .on("trackStart", (queue: any, track) =>
     queue.metadata.channel.send(`🎶 |**${track.title}**를 시작합니다.`)
   )
-  .on("trackAdd", (queue: any, track) =>
+  .on("trackAdd", (queue: any, track) => {
+    if (queue.playing) {
+      queue.metadata.channel.send(
+        `🎶 | **${track.title}**를 재생목록에 추가합니다.`
+      );
+    }
+  })
+  .on("tracksAdd", (queue: any, tracks) =>
     queue.metadata.channel.send(
-      `🎶 | **${track.title}**를 재생목록에 추가합니다.`
+      `🎶 | **${tracks[0].playlist?.title}**를 재생목록에 추가합니다. (${tracks.length}개)`
     )
   )
-  .on("tracksAdd", (queue: any, tracks) => queue.metadata.channel.send(`🎶 | **${tracks[0].playlist?.title}**를 재생목록에 추가합니다. (${tracks.length}개)`))
-  .on("queueEnd", (queue: any) => queue.metadata.channel.send("✅ | 대기열 완료!"))
+  .on("queueEnd", (queue: any) =>
+    queue.metadata.channel.send("✅ | 대기열 완료!")
+  )
   .on("botDisconnect", (queue: any) =>
     queue.metadata.channel.send(
       "❌ | 음성 채널에서 수동으로 연결이 끊어졌습니다. 대기열을 지우는 중입니다!"

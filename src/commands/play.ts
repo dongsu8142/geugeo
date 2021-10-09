@@ -22,7 +22,7 @@ export default {
     if (!member.voice.channelId) {
       return {
         custom: true,
-        content: "음성 채널에 있지 않습니다",
+        content: "❌ | 음성 채널에 있지 않습니다",
         ephemeral: true,
       };
     }
@@ -32,7 +32,7 @@ export default {
     )
       return {
         custom: true,
-        content: "같은 음성 채널에 있지 않습니다",
+        content: "❌ | 같은 음성 채널에 있지 않습니다",
         ephemeral: true,
       };
     const query = interaction.options.getString("query")!;
@@ -48,7 +48,7 @@ export default {
       queue.destroy();
       return {
         custom: true,
-        content: "음성 채널에 참여할 수 없습니다",
+        content: "❌ | 음성 채널에 참여할 수 없습니다",
         ephemeral: true,
       };
     }
@@ -71,10 +71,11 @@ export default {
       queue.addTrack(searchResult.tracks[0]);
     }
 
-    if (!queue.playing) await queue.play();
-
-    await interaction.followUp({
-      content: `⏱️ | **${searchResult.tracks[0].title}**을 로딩하고 있습니다.`,
-    });
+    if (!queue.playing) {
+      await queue.play();
+      await interaction.followUp({
+        content: `⏱️ | **${searchResult.tracks[0].title}**을 로딩하고 있습니다.`,
+      });
+    }
   },
 } as ICommand;
