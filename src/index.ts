@@ -75,7 +75,22 @@ client.on("ready", () => {
     testServers: config.bot.testServers,
     botOwners: config.bot.botOwners,
     mongoUri: config.database.uri,
-  }).setDefaultPrefix(config.bot.prefix);
+  })
+    .setCategorySettings([
+      {
+        name: "Info",
+        emoji: "ℹ️",
+      },
+      {
+        name: "Moderation",
+        emoji: "🔨",
+      },
+      {
+        name: "Music",
+        emoji: "🎵",
+      },
+    ])
+    .setDefaultPrefix(config.bot.prefix);
 });
 
 client.login(config.bot.token);
