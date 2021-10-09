@@ -30,7 +30,7 @@ export default {
           return `✅ | 현재 음량: ${queue.volume}`
       }
     } else {
-      return "❌ | 재생중인 음악이 없습니다!";
+      return "❌ | 재생중인 노래가 없습니다!";
     }
   },
 } as ICommand;
