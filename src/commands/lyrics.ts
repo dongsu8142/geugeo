@@ -9,7 +9,6 @@ export default {
   aliases: ["자막"],
   slash: true,
   guildOnly: true,
-  testOnly: true,
   options: [
     {
       name: "노래",
