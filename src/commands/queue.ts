@@ -9,7 +9,6 @@ export default {
   description: "노래의 재생목록을 보여줍니다.",
   slash: true,
   guildOnly: true,
-  testOnly: true,
   callback: async ({ client, guild, interaction, user }) => {
     const player = (client as DiscordClient).player;
     const queue = player.getQueue(guild!);

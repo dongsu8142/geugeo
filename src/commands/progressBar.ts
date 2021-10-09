@@ -7,7 +7,6 @@ export default {
   description: "재생바를 보여줍니다.",
   slash: true,
   guildOnly: true,
-  testOnly: true,
   callback: ({ client, guild }) => {
     const player = (client as DiscordClient).player;
     const queue = player.getQueue(guild!);

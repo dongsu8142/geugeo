@@ -7,7 +7,6 @@ export default {
   description: "노래를 건너뜁니다.",
   slash: true,
   guildOnly: true,
-  testOnly: true,
   callback: ({ client, guild }) => {
     const player = (client as DiscordClient).player;
     const queue = player.getQueue(guild!);

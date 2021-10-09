@@ -8,7 +8,6 @@ export default {
   description: "노래를 재생합니다.",
   slash: true,
   guildOnly: true,
-  testOnly: true,
   options: [
     {
       name: "query",

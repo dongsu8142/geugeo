@@ -7,7 +7,6 @@ export default {
   description: "음량을 조정하거나 현재 음량을 보려줍니다.",
   slash: true,
   guildOnly: true,
-  testOnly: true,
   options: [
       {
           name: "음량",
