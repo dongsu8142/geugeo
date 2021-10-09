@@ -27,8 +27,8 @@ client.player = new Player(client, {
     filter: "audioonly",
   },
 });
-client.config = config
-client.player.use("reverbnation", Reverbnation)
+client.config = config;
+client.player.use("reverbnation", Reverbnation);
 
 client.player
   .on("trackStart", (queue: any, track) =>
@@ -74,6 +74,7 @@ client.on("ready", () => {
     typeScript: true,
     testServers: config.bot.testServers,
     botOwners: config.bot.botOwners,
+    mongoUri: config.database.uri,
   }).setDefaultPrefix(config.bot.prefix);
 });
 

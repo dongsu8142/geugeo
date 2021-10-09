@@ -4,5 +4,8 @@ bot:
   botOwners: [""]
   testServers: [""]
 
+database: 
+  uri: mongodb://localhost:27017/geugeo
+
 apiKey:
   genius: 

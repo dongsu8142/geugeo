@@ -1,17 +1,22 @@
 interface IConfig {
   bot: Bot;
-  apiKey: ApiKey
+  database: Database;
+  apiKey: ApiKey;
 }
 
 interface Bot {
   token: string;
   prefix: string;
   botOwners: string[];
-  testServers: string[]
+  testServers: string[];
+}
+
+interface Database {
+  uri: string;
 }
 
 interface ApiKey {
-  genius: string
+  genius: string;
 }
 
 export { IConfig };
