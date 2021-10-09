@@ -63,18 +63,18 @@ export default {
   },
 } as ICommand;
 
-function generateQueueEmbed(queue: Track[]) {
+function generateQueueEmbed(tracks: Track[]) {
   const embeds = [];
   let k = 10;
-  for (let i = 0; i < queue.length; i += 10) {
-    const current = queue.slice(i, k);
+  for (let i = 0; i < tracks.length; i += 10) {
+    const current = tracks.slice(i, k);
     let j = i;
     k += 10;
     const info = current
       .map((track) => `${++j}) [${track.title}](${track.url})`)
       .join("\n");
     const embed = new MessageEmbed().setDescription(
-      `**[현재 음악: ${queue[0].title}](${queue[0].url})**\n${info}`
+      `**[현재 음악: ${tracks[0].title}](${tracks[0].url})**\n${info}`
     );
     embeds.push(embed);
   }

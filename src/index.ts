@@ -6,6 +6,7 @@ import fs from "fs";
 import { IConfig } from "./interface/config";
 import { Player } from "discord-player";
 import DiscordClient from "./client";
+import { Reverbnation } from "@discord-player/extractor";
 
 const config = YAML.load(fs.readFileSync("./config.yml", "utf8")) as IConfig;
 
@@ -26,6 +27,8 @@ client.player = new Player(client, {
     filter: "audioonly",
   },
 });
+client.config = config
+client.player.use("reverbnation", Reverbnation)
 
 client.player
   .on("trackStart", (queue: any, track) =>
